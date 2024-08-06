@@ -113,8 +113,12 @@
         var ch2= document.getElementById("ch2");
         var ch3= document.getElementById("ch3");
         var chat= document.getElementById("chat");
+        var fp_sara=30
+        var fp_rana=30
         var choice=""
         var q1=["Nobody cares","That is very uninteresting","Do you want to talk about it?"]
+        var q2=[]
+        
         function intro(narr,ch1,ch2,ch3){
             setTimeout(() => {
                 narr.innerText="Choose your words carefully to avoid losing friendship points";
@@ -139,33 +143,42 @@
                 ch1.innerText= chs[0];
                 ch2.innerText= chs[1];
                 ch3.innerText= chs[2];
+                ch1.addEventListener("click",()=>{choice=`<span class='name'>You:</span>${chs[0]}`;clear(narr,ch1,ch2,ch3,chat);chat.insertAdjacentHTML("beforeend", choice);});
+                ch2.addEventListener("click",()=>{choice=`<span class='name'>You:</span>${chs[1]}`;clear(narr,ch1,ch2,ch3,chat);chat.insertAdjacentHTML("beforeend", choice);});
+                ch3.addEventListener("click",()=>{choice=`<span class='name'>You:</span>${chs[2]}`;clear(narr,ch1,ch2,ch3,chat);chat.insertAdjacentHTML("beforeend", choice);});
+                return choice
             }, 10000);
-            ch1.addEventListener("click",()=>{choice=`<span class='name'>You:</span>${chs[0]}`;clear(narr,ch1,ch2,ch3,chat);chat.insertAdjacentHTML("beforeend", choice);});
-            ch2.addEventListener("click",()=>{choice=`<span class='name'>You:</span>${chs[1]}`;clear(narr,ch1,ch2,ch3,chat);chat.insertAdjacentHTML("beforeend", choice);});
-            ch3.addEventListener("click",()=>{choice=`<span class='name'>You:</span>${chs[2]}`;clear(narr,ch1,ch2,ch3,chat);chat.insertAdjacentHTML("beforeend", choice);});
-            console.log('prints')
             
-            console.log('prints')
-            return choice
         }
         function clear(narr,ch1,ch2,ch3,chat){
             narr.innerText= "";
             ch1.innerText= "";
             ch2.innerText= "";
             ch3.innerText= "";
-            console.log('this part runs');
-            ch1.removeEventListener("click",()=>{choice=`<span class='name'>You:</span>${chs[0]}`;clear(narr,ch1,ch2,ch3);chat.insertAdjacentHTML("beforeend", choice);});
-            console.log('this part runs');
-            ch2.removeEventListener("click",()=>{choice=`<span class='name'>You:</span>${chs[1]}`;clear(narr,ch1,ch2,ch3);chat.insertAdjacentHTML("beforeend", choice);});
-            console.log('this part runs');
-            ch3.removeEventListener("click",()=>{choice=`<span class='name'>You:</span>${chs[2]}`;clear(narr,ch1,ch2,ch3);chat.insertAdjacentHTML("beforeend", choice);});
-            console.log('this part runs');
+            ch1.removeEventListener("click",()=>{choice=`<span class='name'>You:</span> ${chs[0]}`;clear(narr,ch1,ch2,ch3);chat.insertAdjacentHTML("beforeend", choice);});
+            ch2.removeEventListener("click",()=>{choice=`<span class='name'>You:</span> ${chs[1]}`;clear(narr,ch1,ch2,ch3);chat.insertAdjacentHTML("beforeend", choice);});
+            ch3.removeEventListener("click",()=>{choice=`<span class='name'>You:</span> ${chs[2]}`;clear(narr,ch1,ch2,ch3);chat.insertAdjacentHTML("beforeend", choice);});
             
         }
         intro(narr,ch1,ch2,ch3);
         chat1(chat);
         ch(narr,ch1,ch2,ch3,q1,choice)
         
+        if(choice == q1[2]){
+            setTimeout(() => {
+            chat.insertAdjacentHTML("beforeend", "<span class='name'>Rana:</span> My teacher shouted at me for no reason, so that feels so unfair.");
+            ,12000}
+        }
+        else{
+            console.log('hiiiiiii')
+            setTimeout(() => {
+            chat.insertAdjacentHTML("beforeend", "<span class='name'>Sara:</span> That was not very nice.");
+            chat.insertAdjacentHTML("beforeend", "<span class='name'>Rana:</span> My teacher shouted at me for no reason, so that feels so unfair.")
+            fp_sara= 25;
+            fp_rana= 20;
+            ,12000}
+            
+        }
     </script>
 </body>
 </html>
