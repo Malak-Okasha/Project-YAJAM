@@ -133,42 +133,30 @@
                 chat.innerHTML="<span class='name'> Sara:</span> Hey guys! How was your day? <br><span class='name'> Rana:</span> Unfortunately I ran into some problems at school. <br> ";
             }, 8000);
         }
-        function ch(narr, ch1, ch2, ch3, chs, chat) {
-    // Display choices after a delay
-    setTimeout(() => {
-        narr.innerText = "Choose what to say";
-        ch1.innerText = chs[0];
-        ch2.innerText = chs[1];
-        ch3.innerText = chs[2];
-    }, 10000);
-
-    // Define click handlers
-    function handleChoice(choiceText,chat) {
-        return () => {
-            // Display choice in the chat window
-            const choiceHTML = `<span class='name'>You:</span> ${choiceText}`;
-            chat.insertAdjacentHTML("beforeend", choiceHTML);
-            clear(narr, ch1, ch2, ch3);
-        };
-    }
-
-    // Attach event listeners
-    ch1.addEventListener("click", handleChoice(chs[0],chat));
-    ch2.addEventListener("click", handleChoice(chs[1],chat));
-    ch3.addEventListener("click", handleChoice(chs[2],chat));
-}
-
-function clear(narr, ch1, ch2, ch3) {
-    narr.innerText = "";
-    ch1.innerText = "";
-    ch2.innerText = "";
-    ch3.innerText = "";
-
-    // Remove event listeners by replacing elements with clones
-    ch1.replaceWith(ch1.cloneNode(true));
-    ch2.replaceWith(ch2.cloneNode(true));
-    ch3.replaceWith(ch3.cloneNode(true));
-}
+        function ch(narr,ch1,ch2,ch3,chs,choice){
+            setTimeout(() => {
+                narr.innerText="Choose what to say";
+                ch1.innerText= chs[0];
+                ch2.innerText= chs[1];
+                ch3.innerText= chs[2];
+            }, 10000);
+            ch1.addEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[0])`;clear(narr,ch1,ch2,ch3,chat);});
+            ch2.addEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[1])`;clear(narr,ch1,ch2,ch3,chat)});
+            ch3.addEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[2])`;clear(narr,ch1,ch2,ch3,chat)});
+            chat.insertAdjacentHTML("beforeend", choice);
+            console.log('this part runs');
+            return choice
+        }
+        function clear(narr,ch1,ch2,ch3,chat){
+            narr.innerText= "";
+            ch1.innerText= "";
+            ch2.innerText= "";
+            ch3.innerText= "";
+            ch1.removeEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[0])`;clear(narr,ch1,ch2,ch3)});
+            ch2.removeEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[1])`;clear(narr,ch1,ch2,ch3)});
+            ch3.removeEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[2])`;clear(narr,ch1,ch2,ch3)});
+            
+        }
         intro(narr,ch1,ch2,ch3);
         chat1(chat);
         ch(narr,ch1,ch2,ch3,q1,choice)
