@@ -144,7 +144,7 @@
             ch2.addEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[1])`;clear(narr,ch1,ch2,ch3,chat)});
             ch3.addEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[2])`;clear(narr,ch1,ch2,ch3,chat)});
             chat.insertAdjacentHTML("beforeend", choice);
-            console.log('this part runs');
+            
             return choice
         }
         function clear(narr,ch1,ch2,ch3,chat){
@@ -155,6 +155,7 @@
             ch1.removeEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[0])`;clear(narr,ch1,ch2,ch3)});
             ch2.removeEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[1])`;clear(narr,ch1,ch2,ch3)});
             ch3.removeEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[2])`;clear(narr,ch1,ch2,ch3)});
+            console.log('this part runs');
             
         }
         intro(narr,ch1,ch2,ch3);
