@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka">
+    <style>
+        body{
+            font-family: Fredoka;
+            font-weight: bolder;
+            background-color: #a48269;
+            display: grid;
+            height: auto;
+            width: auto;            
+            grid-template-columns: 1fr 1fr;
+            justify-items: center;
+            align-items: center;
+            padding:auto;
+        }
+        #choices-window{
+            display:grid;
+            grid-area: 'choices';
+            grid-template-areas: 
+            'narr' 'narr'
+            'choice1' 'choice2'
+            'choice3' 'choice4'
+            ;
+            justify-items: center;
+            align-items: center;
+            width:50vw;
+            height:auto;
+            margin:auto;
+        }
+        #display{
+            display:grid;
+            grid-area: 'display';
+            grid-template-columns: 1fr 1fr ;
+            width:45vw;
+            height:97.5vh;
+            margin:auto;
+            justify-items: center;
+            align-items: center;
+        }
+        .text-boxes{
+            border-style: solid;
+            border-width: 4px;
+            margin:5px;
+            height:10vh;
+            width: 30vw;
+            background-color: #e9e9e6;
+            text-align: center;
+            padding-top:7vh;
+            border-radius: 5px;
+            border-color: #755d4b;
+        }
+        .images{
+            border-style: solid;
+            border-width: 4px;
+            margin:5px;
+            height:40vh;
+            width: auto;
+            background-color: #e9e9e6;
+            text-align: center;
+            padding:0;
+            border-radius: 5px;
+            border-color: #755d4b;
+        }
+        #chat{
+            border-style: solid;
+            border-width: 4px;
+            margin:5px;
+            height:40vh;
+            width: auto;
+            background-color: #e9e9e6;
+            text-align: top;
+            padding-top:2vh;
+            padding-bottom: 2vh;
+            border-radius: 5px;
+            overflow-y:scroll;
+            border-color: #755d4b;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="display">
+        <div class="images"style="width:95%; margin:2px">
+
+        </div>
+        <div class="images"style="width:95%;margin:2px">
+
+        </div>
+        <div id="chat" style="width:100%; grid-column: 1/span 2;">
+
+        </div>
+    </div>
+    <div id="choices-window"> 
+        <div class="text-boxes" id="narr" style="grid-area:'narr'; width:45vw">This is a conversation between friends</div> 
+        <div class="text-boxes" id="ch1" style="grid-area:'choice1'"></div> 
+        <div class="text-boxes" id="ch2" style="grid-area:'choice2'"></div> 
+        <div class="text-boxes" id="ch3" style="grid-area:'choice3'"></div> 
+    </div>
+    <script>
+        var narr= document.getElementById("narr");
+        var ch1= document.getElementById("ch1");
+        var ch2= document.getElementById("ch2");
+        var ch3= document.getElementById("ch3");
+        var chat= document.getElementById("chat");
+        function intro(narr,ch1,ch2,ch3){
+            setTimeout(() => {
+                narr.innerText="Choose your words carefully to avoid losing friendship points";
+            }, 2000);
+                
+            setTimeout(() => {
+                narr.innerText="";
+            }, 4000);
+        }
+
+        function chat1(narr,ch1,ch2,ch3,chat){
+            setTimeout(() => {
+                chat.innerText="";
+            }, 4000);
+        }
+        intro(narr,ch1,ch2,ch3)
+
+    </script>
+</body>
+</html>
