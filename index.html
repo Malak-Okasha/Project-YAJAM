@@ -163,10 +163,11 @@
         intro(narr,ch1,ch2,ch3);
         chat1(chat);
         ch(narr,ch1,ch2,ch3,q1,choice)
-        while (choice==""){
+        while (choice=="" or choice==q1[0] or choice==q1[1] or choice==q1[2]){
             if(choice == q1[2]){
                 setTimeout(() => {
                 chat.insertAdjacentHTML("beforeend", "<span class='name'>Rana:</span> My teacher shouted at me for no reason, so that feels so unfair.");
+                break
                 },12000)
             }
             else{
