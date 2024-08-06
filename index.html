@@ -154,6 +154,7 @@
             ch2.removeEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[1])`;clear(narr,ch1,ch2,ch3)});
             ch3.removeEventListener("click",()=>{choice=`<span class='name'>You:</span>$(chs[2])`;clear(narr,ch1,ch2,ch3)});
             chat.insertAdjacentHTML("beforeend", choice);
+            console.log('this part runs')
         }
         intro(narr,ch1,ch2,ch3);
         chat1(chat);
