@@ -128,7 +128,7 @@
                 narr.innerText="";
             }, 4000);
         }
-
+        }
         function chat1(chat){
             setTimeout(() => {
                 chat.innerHTML="<span class='name'> Sara:</span> Hey guys! How was your day? <br>";
@@ -136,7 +136,7 @@
             setTimeout(() => {
                 chat.innerHTML="<span class='name'> Sara:</span> Hey guys! How was your day? <br><span class='name'> Rana:</span> Unfortunately I ran into some problems at school. <br> ";
             }, 8000);
-        }
+        }}
         function listen1no0(narr,ch1,ch2,ch3,chs,choice,chat)
         {choice=`<span class='name'>You:</span> ${chs[0]} <br>`;
          narr.innerText= "";
@@ -150,7 +150,7 @@
                 chat.insertAdjacentHTML("beforeend", "<span class='name'>Rana:</span> My teacher shouted at me for no reason, so that feels so unfair. <br>")
                 },2000);
                 choice2(narr,ch1,ch2,ch3,q2,choice,chat);
-         }
+         }}
         function listen1no1(narr,ch1,ch2,ch3,chs,choice,chat)
         {choice=`<span class='name'>You:</span> ${chs[1]} <br>`;
          narr.innerText= "";
@@ -163,7 +163,7 @@
           setTimeout(()=>{
                 chat.insertAdjacentHTML("beforeend", "<span class='name'>Rana:</span> My teacher shouted at me for no reason, so that feels so unfair. <br>")
                 },2000);
-                choice2(narr,ch1,ch2,ch3,q2,choice,chat)}
+                choice2(narr,ch1,ch2,ch3,q2,choice,chat)}}
         function listen1yes(narr,ch1,ch2,ch3,chs,choice,chat)
         {choice=`<span class='name'>You:</span> ${chs[2]} <br>`;
          narr.innerText= "";
@@ -175,7 +175,7 @@
           setTimeout(()=>{
                 chat.insertAdjacentHTML("beforeend", "<span class='name'>Rana:</span> My teacher shouted at me for no reason, so that feels so unfair. <br>")
                 },2000);
-                choice2(narr,ch1,ch2,ch3,chs,choice,chat)}
+                choice2(narr,ch1,ch2,ch3,chs,choice,chat)}}
         function listen2yes(narr,ch1,ch2,ch3,chs,choice,chat)
         {choice=`<span class='name'>You:</span> ${chs[1]} <br>`;
          narr.innerText= "";
@@ -186,8 +186,9 @@
          chat.insertAdjacentHTML("beforeend", choice);
           setTimeout(()=>{
                 chat.insertAdjacentHTML("beforeend", "<span class='name'>Rana:</span> Yes, maybe... Thanks for listening to me <br>")
-                },2000);
-                //choice2(narr,ch1,ch2,ch3,q2,choice)}
+                },2000);}
+                //choice2(narr,ch1,ch2,ch3,q2,choice)
+        
          function listen2no0(narr,ch1,ch2,ch3,chs,choice,chat)
         {choice=`<span class='name'>You:</span> ${chs[0]} <br>`;
          narr.innerText= "";
@@ -199,7 +200,7 @@
          chat.insertAdjacentHTML("beforeend", "<span class='name'>Sara:</span> You are being very unkind. <br>")
           setTimeout(()=>{
                 chat.insertAdjacentHTML("beforeend", "<span class='name'>Rana:</span> acually, that techer always shoutes at students and everyone there was on my side. <br>")
-                },2000);
+                },2000);}
          function listen2no2(narr,ch1,ch2,ch3,chs,choice,chat)
         {choice=`<span class='name'>You:</span> ${chs[2]} <br>`;
          narr.innerText= "";
@@ -211,7 +212,7 @@
          chat.insertAdjacentHTML("beforeend", "<span class='name'>Sara:</span> You are being very unkind. <br>")
           setTimeout(()=>{
                 chat.insertAdjacentHTML("beforeend", "<span class='name'>Rana:</span> acually, that techer always shoutes at students and everyone there was on my side. <br>")
-                },2000);
+                },2000);}
         function choice1(narr,ch1,ch2,ch3,chs,choice,chat){
             setTimeout(() => {
                 narr.innerText="Choose what to say";
@@ -236,8 +237,6 @@
             }, 14000);
             
         }
-        }
-        
         intro(narr,ch1,ch2,ch3);
         chat1(chat);
         choice1(narr,ch1,ch2,ch3,q1,choice,chat);
