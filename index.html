@@ -134,9 +134,7 @@ function intro(narr, ch1, ch2, ch3) {
         chat.innerHTML = "<span class='name'> Sara:</span> Hey guys! How was your day? <br><span class='name'> Rana:</span> Unfortunately I ran into some problems at school. <br>";
     }, 8000);
 }
-// Named functions to be used as event listeners
 function onChoice1No0(narr, ch1, ch2, ch3, chs, chat) {
-    ch1.removeEventListener("click", onChoice1No0);
     choice = `<span class='name'>You:</span> ${chs[0]} <br>`;
     narr.innerText = "";
     ch1.innerText = "";
@@ -151,7 +149,6 @@ function onChoice1No0(narr, ch1, ch2, ch3, chs, chat) {
 }
 
 function onChoice1No1(narr, ch1, ch2, ch3, chs, chat) {
-    ch2.removeEventListener("click", onChoice1No1);
     choice = `<span class='name'>You:</span> ${chs[1]} <br>`;
     narr.innerText = "";
     ch1.innerText = "";
@@ -166,7 +163,6 @@ function onChoice1No1(narr, ch1, ch2, ch3, chs, chat) {
 }
 
 function onChoice1Yes(narr, ch1, ch2, ch3, chs, chat) {
-    ch3.removeEventListener("click", onChoice1Yes);
     choice = `<span class='name'>You:</span> ${chs[2]} <br>`;
     narr.innerText = "";
     ch1.innerText = "";
@@ -180,7 +176,6 @@ function onChoice1Yes(narr, ch1, ch2, ch3, chs, chat) {
 }
 
 function onChoice2Yes(narr, ch1, ch2, ch3, chs, chat) {
-    ch2.removeEventListener("click", onChoice2Yes);
     choice = `<span class='name'>You:</span> ${chs[1]} <br>`;
     narr.innerText = "";
     ch1.innerText = "";
@@ -193,7 +188,6 @@ function onChoice2Yes(narr, ch1, ch2, ch3, chs, chat) {
 }
 
 function onChoice2No0(narr, ch1, ch2, ch3, chs, chat) {
-    ch1.removeEventListener("click", onChoice2No0);
     choice = `<span class='name'>You:</span> ${chs[0]} <br>`;
     narr.innerText = "";
     ch1.innerText = "";
@@ -207,7 +201,6 @@ function onChoice2No0(narr, ch1, ch2, ch3, chs, chat) {
 }
 
 function onChoice2No2(narr, ch1, ch2, ch3, chs, chat) {
-    ch3.removeEventListener("click", onChoice2No2);
     choice = `<span class='name'>You:</span> ${chs[2]} <br>`;
     narr.innerText = "";
     ch1.innerText = "";
@@ -220,15 +213,33 @@ function onChoice2No2(narr, ch1, ch2, ch3, chs, chat) {
     }, 2000);
 }
 
+function clearListeners(ch1, ch2, ch3, events) {
+    ch1.removeEventListener("click", events.ch1);
+    ch2.removeEventListener("click", events.ch2);
+    ch3.removeEventListener("click", events.ch3);
+}
+
 function choice1(narr, ch1, ch2, ch3, chs, chat) {
     setTimeout(() => {
         narr.innerText = "Choose what to say";
         ch1.innerText = chs[0];
         ch2.innerText = chs[1];
         ch3.innerText = chs[2];
-        ch1.addEventListener("click", () => onChoice1No0(narr, ch1, ch2, ch3, chs, chat));
-        ch2.addEventListener("click", () => onChoice1No1(narr, ch1, ch2, ch3, chs, chat));
-        ch3.addEventListener("click", () => onChoice1Yes(narr, ch1, ch2, ch3, chs, chat));
+        
+        // Define event handlers
+        const events = {
+            ch1: () => onChoice1No0(narr, ch1, ch2, ch3, chs, chat),
+            ch2: () => onChoice1No1(narr, ch1, ch2, ch3, chs, chat),
+            ch3: () => onChoice1Yes(narr, ch1, ch2, ch3, chs, chat)
+        };
+
+        // Remove any previous event listeners
+        clearListeners(ch1, ch2, ch3, events);
+
+        // Add new event listeners
+        ch1.addEventListener("click", events.ch1);
+        ch2.addEventListener("click", events.ch2);
+        ch3.addEventListener("click", events.ch3);
     }, 10000);
 }
 
@@ -238,9 +249,21 @@ function choice2(narr, ch1, ch2, ch3, chs, chat) {
         ch1.innerText = chs[0];
         ch2.innerText = chs[1];
         ch3.innerText = chs[2];
-        ch1.addEventListener("click", () => onChoice2No0(narr, ch1, ch2, ch3, chs, chat));
-        ch2.addEventListener("click", () => onChoice2Yes(narr, ch1, ch2, ch3, chs, chat));
-        ch3.addEventListener("click", () => onChoice2No2(narr, ch1, ch2, ch3, chs, chat));
+        
+        // Define event handlers
+        const events = {
+            ch1: () => onChoice2No0(narr, ch1, ch2, ch3, chs, chat),
+            ch2: () => onChoice2Yes(narr, ch1, ch2, ch3, chs, chat),
+            ch3: () => onChoice2No2(narr, ch1, ch2, ch3, chs, chat)
+        };
+
+        // Remove any previous event listeners
+        clearListeners(ch1, ch2, ch3, events);
+
+        // Add new event listeners
+        ch1.addEventListener("click", events.ch1);
+        ch2.addEventListener("click", events.ch2);
+        ch3.addEventListener("click", events.ch3);
     }, 14000);
 }
 
