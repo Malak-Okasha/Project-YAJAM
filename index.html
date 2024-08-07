@@ -140,7 +140,7 @@
         function listen1no0(narr,ch1,ch2,ch3,chs,choice,chat)
         {
          if(ch1.getAttribute("listener")!="true"){
-         ch1.setAtrribute("listener")= "true";
+         ch1.setAttribute("listener")= "true";
          choice=`<span class='name'>You:</span> ${chs[0]} <br>`;
          narr.innerText= "";
          ch1.innerText= "";
@@ -157,7 +157,7 @@
         function listen1no1(narr,ch1,ch2,ch3,chs,choice,chat)
         {
         if(ch2.getAttribute("listener")!="true"){
-            ch2.setAtrribute("listener")= "true";
+            ch2.setAttribute("listener")= "true";
         choice=`<span class='name'>You:</span> ${chs[1]} <br>`;
          narr.innerText= "";
          ch1.innerText= "";
@@ -172,7 +172,7 @@
                 choice2(narr,ch1,ch2,ch3,q2,choice,chat)}}
         function listen1yes(narr,ch1,ch2,ch3,chs,choice,chat)
         {if(ch3.getAttribute("listener")!="true"){
-            ch3.setAtrribute("listener")= "true";
+            ch3.setAttribute("listener")= "true";
             choice=`<span class='name'>You:</span> ${chs[2]} <br>`;
          narr.innerText= "";
          ch1.innerText= "";
@@ -186,7 +186,7 @@
                 choice2(narr,ch1,ch2,ch3,chs,choice,chat)}}
         function listen2yes(narr,ch1,ch2,ch3,chs,choice,chat)
         {if(ch2.getAttribute("listener")!="true2"){
-            ch2.setAtrribute("listener")= "true2";
+            ch2.setAttribute("listener")= "true2";
             choice=`<span class='name'>You:</span> ${chs[1]} <br>`;
          narr.innerText= "";
          ch1.innerText= "";
@@ -201,7 +201,7 @@
         
          function listen2no0(narr,ch1,ch2,ch3,chs,choice,chat)
         {if(ch1.getAttribute("listener")!="true2"){
-            ch1.setAtrribute("listener")= "true2";
+            ch1.setAttribute("listener")= "true2";
             choice=`<span class='name'>You:</span> ${chs[0]} <br>`;
          narr.innerText= "";
          ch1.innerText= "";
@@ -215,7 +215,7 @@
                 },2000);}}
          function listen2no2(narr,ch1,ch2,ch3,chs,choice,chat)
         {if(ch3.getAttribute("listener")!="true2"){
-            ch3.setAtrribute("listener")= "true2";
+            ch3.setAttribute("listener")= "true2";
             choice=`<span class='name'>You:</span> ${chs[2]} <br>`;
          narr.innerText= "";
          ch1.innerText= "";
